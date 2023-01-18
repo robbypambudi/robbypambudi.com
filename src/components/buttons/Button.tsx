@@ -50,13 +50,14 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         type="button"
         disabled={disabled}
         className={clsxm(
-          "button inline-flex items-center justify-center rounded-lg",
+          "button inline-flex items-center justify-center rounded",
           "focus:outline-none focus-visible:ring focus-visible:ring-primary-500",
           "transition-colors duration-75",
+          "border border-primary-100",
           //#region  //*=========== Size ===========
           [
             size === "base" && [
-              "min-h-[34px] py-1.5 px-2.5 font-bold md:min-h-[42px] md:py-2 md:px-3",
+              "min-h-[34px] py-2 px-3 font-bold md:min-h-[42px] md:py-3 md:px-6",
               "text-sm md:text-base",
             ],
             size === "sm" && [
@@ -68,10 +69,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           //#region  //*=========== Variants ===========
           [
             variant === "primary" && [
-              "bg-primary-400 text-white",
-              "hover:bg-primary-600",
+              "text-white",
+              "hover:bg-danger-500 hover:border-danger-500",
               "active:bg-primary-700",
-              "shadow-p-100 hover:shadow-p-200 disabled:hover:shadow-p-100",
               "disabled:bg-primary-700 disabled:brightness-90 disabled:hover:bg-primary-700",
             ],
             variant === "outline" && [
@@ -137,7 +137,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
                   size === "sm" && "text-sm md:text-lg",
                 ],
                 [
-                  variant === "primary" && "text-primary-100",
+                  variant === "primary" && "text-white",
                   variant === "danger" && "text-danger-100",
                   ["outline", "ghost"].includes(variant) && "text-typo-icons",
                 ],
