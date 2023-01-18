@@ -1,6 +1,8 @@
 import * as React from "react";
 
 import BaseDialog from "@/components/dialog/BaseDialog";
+import Navbar from "@/layouts/Navbar";
+import Sidebar from "@/layouts/Sidebar";
 import useDialogStore from "@/store/useDialogStore";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -12,7 +14,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   //#endregion  //*======== Store ===========
 
   return (
-    <div>
+    <div className="overflow-hidden">
+      <Navbar />
+      <Sidebar />
       {children}
       <BaseDialog
         onClose={handleClose}
