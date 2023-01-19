@@ -1,9 +1,9 @@
-import * as React from "react";
+import * as React from 'react';
 
-import BaseDialog from "@/components/dialog/BaseDialog";
-import Navbar from "@/layouts/Navbar";
-import Sidebar from "@/layouts/Sidebar";
-import useDialogStore from "@/store/useDialogStore";
+import BaseDialog from '@/components/dialog/BaseDialog';
+import Navbar from '@/layouts/Navbar';
+import Sidebar from '@/layouts/Sidebar';
+import useDialogStore from '@/store/useDialogStore';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   //#region  //*=========== Store ===========
@@ -14,7 +14,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   //#endregion  //*======== Store ===========
 
   return (
-    <div className="overflow-hidden">
+    <div className='overflow-hidden'>
       <Navbar />
       <Sidebar />
       {children}

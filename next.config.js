@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   eslint: {
-    dirs: ["src"],
+    dirs: ['src'],
   },
 
   images: {
@@ -11,7 +11,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
 
-  pageExtensions: ["page.tsx", "api.ts"],
+  pageExtensions: ['page.tsx', 'api.ts'],
 };
 
 module.exports = nextConfig;
