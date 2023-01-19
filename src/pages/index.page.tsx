@@ -69,7 +69,10 @@ export default function Home() {
 
   return (
     <Layout>
-      <SEO title='Home' description='This is the home page' />
+      <SEO
+        title='Home'
+        description='is a portfolio website to showcase projects and as a medium for sharing a knowledge'
+      />
       <main className='bg-primary-900'>
         <section id='hero'>
           <div className='layout h-screen flex flex-col justify-center'>
