@@ -64,7 +64,7 @@ export default function Typography<T extends React.ElementType>({
           variant === 'b1' && 'text-base font-medium',
           variant === 'b2' && 'text-sm font-medium',
           variant === 'c1' && 'text-base font-normal',
-          variant === 'c2' && 'text-sm font-normal',
+          variant === 'c2' && 'md:text-sm font-normal text-sm',
           variant === 'l1' && 'text-base font-light',
           variant === 'l2' && 'text-sm font-light',
         ],

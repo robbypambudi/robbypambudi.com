@@ -15,17 +15,18 @@ export default function SkillCard({ card, onClick }: SkillCardProps) {
   return (
     <button
       className={clsxm(
-        'h-[220px] w-[220px] flex flex-col items-center justify-center shadow-lg',
-        'shadow-primary-700 hover:scale-[1.05] duration-300'
+        'md:h-[220px] md:w-[220px] flex flex-col items-center justify-center shadow-lg',
+        'shadow-primary-700 hover:scale-[1.05] duration-300',
+        'h-[150px] w-[150px] '
       )}
       onClick={onClick}
     >
       <NextImage
         src={card.image}
         alt={card.technologie}
-        width={100}
-        height={100}
-        className=''
+        width={128}
+        height={128}
+        className='w-24 h-24 md:w-32 md:h-32'
       />
       <Typography variant='h5' as='h5' color='white' className='mt-4'>
         {card.technologie}

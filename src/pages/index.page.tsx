@@ -3,22 +3,70 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
+import { useMutation } from '@tanstack/react-query';
+import axios from 'axios';
+import { serialize } from 'object-to-formdata';
 import * as React from 'react';
+import { FormProvider, useForm } from 'react-hook-form';
 import { FiArrowRight } from 'react-icons/fi';
 import { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import Button from '@/components/buttons/Button';
+import Input from '@/components/forms/Input';
+import TextArea from '@/components/forms/TextArea';
 import SEO from '@/components/SEO';
 import Typography from '@/components/Typography';
 import Project from '@/constant/project';
+import EMAIL_REGEX from '@/constant/regex';
 import Skills from '@/constant/skills';
 import ProjectCard from '@/container/card/ProjectCard';
 import SkillCard from '@/container/card/SkillCard';
 import SkillModal from '@/container/modal/SkillModal';
+import useMutationToast from '@/hooks/toast/useMuatationToast';
 import Layout from '@/layouts/Layout';
+import { ApiReturn } from '@/types/api';
+
+type ContactForm = {
+  name: string;
+  email: string;
+  message: string;
+};
 
 export default function Home() {
+  const methods = useForm<ContactForm>();
+
+  const { handleSubmit } = methods;
+
+  const { mutateAsync: sendEmail } = useMutationToast<
+    ApiReturn<unknown>,
+    FormData
+  >(
+    useMutation((data) =>
+      axios
+        .post(
+          'https://getform.io/f/b6d34c9a-635f-461f-8e49-c029ca140cff',
+          data,
+          {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+          }
+        )
+        .then((res) => res.data)
+    ),
+    {
+      success: 'Message sent successfully',
+      error: 'Failed to send message',
+      loading: 'Sending message...',
+    }
+  );
+
+  const onSubmit = (data: ContactForm) => {
+    const formdata = serialize(data);
+    sendEmail(formdata);
+  };
+
   return (
     <Layout>
       <SEO title='Home' description='This is the home page' />
@@ -57,8 +105,8 @@ export default function Home() {
         </section>
         <section id='about'>
           <div className='layout h-screen flex flex-col justify-center'>
-            <div className='grid grid-cols-2 gap-x-8'>
-              <div className='flex flex-col justify-center items-end'>
+            <div className='grid md:grid-cols-2 gap-x-8 grid-cols-1'>
+              <div className='flex flex-col justify-center md:items-end'>
                 <Typography
                   variant='h2'
                   as='h2'
@@ -71,7 +119,7 @@ export default function Home() {
                   variant='h3'
                   as='h3'
                   color='primary'
-                  className='text-end mt-4'
+                  className='md:text-end mt-4'
                 >
                   Hi, I&apos;m Robby, nice to meet you. Please take a look
                   around.
@@ -81,7 +129,7 @@ export default function Home() {
                 <Typography
                   color='primary'
                   variant='p'
-                  className='text-justify'
+                  className='text-justify md:mt-0 mt-4'
                 >
                   I&apos;m a passionate about building excellent software that
                   improves the lives of around me. I specialize in creating
@@ -110,7 +158,7 @@ export default function Home() {
             >
               # These are the technologies I&apos;ve been working with recently.
             </Typography>
-            <div className='flex flex-wrap gap-2 justify-center'>
+            <div className='flex flex-wrap gap-2 justify-center mt-8'>
               <SkillModal>
                 {({ openModal }) => (
                   <>
@@ -148,9 +196,22 @@ export default function Home() {
             </Typography>
             <div className='mt-12 px-2 mb-4'>
               <Swiper
-                spaceBetween={50}
-                slidesPerView={2}
                 modules={[Navigation]}
+                slidesPerView='auto'
+                breakpoints={{
+                  420: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                  },
+                  640: {
+                    slidesPerView: 2,
+                    spaceBetween: 40,
+                  },
+                  1280: {
+                    slidesPerView: 3,
+                    spaceBetween: 50,
+                  },
+                }}
                 navigation={true}
                 loop={true}
                 loopFillGroupWithBlank={true}
@@ -164,6 +225,52 @@ export default function Home() {
                   </SwiperSlide>
                 ))}
               </Swiper>
+            </div>
+          </div>
+        </section>
+        <section id='contact'>
+          <div className='layout h-screen flex justify-center flex-col'>
+            <div className=''>
+              <Typography
+                variant='h2'
+                as='h2'
+                color='primary'
+                className='underline decoration-danger-500'
+              >
+                Contact
+              </Typography>
+            </div>
+            <Typography
+              variant='p'
+              color='primary'
+              className='mt-4 font-secondary'
+            >
+              # If you want to get in touch, feel free to say hello through any
+            </Typography>
+            <div className='mt-8'>
+              <FormProvider {...methods}>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                  <div className='md:w-1/2 w-11/12 sm:w-3/4'>
+                    <Input
+                      id='email'
+                      label='Email'
+                      validation={{
+                        required: 'Email is required',
+                        pattern: {
+                          value: EMAIL_REGEX,
+                          message: "I'm expecting an email address",
+                        },
+                      }}
+                      placeholder='robby.pambudi10@gmail.com'
+                    />
+                    <Input id='name' label='Name' placeholder='Robby Pambudi' />
+                    <TextArea id='message' label='Message' placeholder='Hai' />
+                    <Button type='submit' className='mt-4'>
+                      Let&apos;s Collaborate
+                    </Button>
+                  </div>
+                </form>
+              </FormProvider>
             </div>
           </div>
         </section>

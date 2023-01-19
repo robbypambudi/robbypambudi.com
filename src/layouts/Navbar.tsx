@@ -10,8 +10,8 @@ const links = [
   { href: '#', label: 'Home' },
   { href: '#about', label: 'About' },
   { href: '#skills', label: 'Skills' },
-  { href: '#projects', label: 'Work' },
-  { href: '#', label: 'Contact' },
+  { href: '#projects', label: 'Projects' },
+  { href: '#contact', label: 'Contact' },
 ];
 
 export default function Navbar() {

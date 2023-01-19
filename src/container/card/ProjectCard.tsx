@@ -18,7 +18,7 @@ export default function ProjectCard({ card, onClick }: ProjectCardProps) {
     <div
       className={clsxm(
         'flex flex-col justify-between shadow-lg py-2 border border-primary-300 rounded-md ',
-        'shadow-primary-700 group h-[520px] pb-4'
+        'shadow-primary-700 group h-[520px] md:h-[600px] pb-4'
       )}
       onClick={onClick}
     >
@@ -32,7 +32,7 @@ export default function ProjectCard({ card, onClick }: ProjectCardProps) {
           imgClassName='rounded-sm'
         />
         <div className='px-4 mt-4 w-full flex flex-col justify-center'>
-          <div className='flex justify-between items-center'>
+          <div className='flex justify-between items-center gap-x-1'>
             <Typography
               variant='h3'
               as='h3'
@@ -42,12 +42,16 @@ export default function ProjectCard({ card, onClick }: ProjectCardProps) {
               {card.name}
             </Typography>
             <div>
-              <Typography variant='c2' color='gray' className='font-secondary'>
+              <Typography
+                variant='c2'
+                color='gray'
+                className='font-secondary  text-end'
+              >
                 {card.date_start} - {card.date_end}
               </Typography>
             </div>
           </div>
-          <div className='space-x-2'>
+          <div className='md:space-x-2 space-x-1'>
             {card.technologies.map((tech, index) => (
               <Tag key={index} className='mt-2'>
                 {tech}
@@ -57,7 +61,7 @@ export default function ProjectCard({ card, onClick }: ProjectCardProps) {
           <Typography
             variant='p'
             color='primary'
-            className='mt-2 font-secondary text-ellipsis text-justify'
+            className='md:mt-2 mt-6 font-secondary text-ellipsis text-justify'
           >
             {card.description}
           </Typography>
