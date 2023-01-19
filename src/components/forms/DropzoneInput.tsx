@@ -5,7 +5,6 @@ import { Accept, FileRejection, useDropzone } from 'react-dropzone';
 import { Controller, useFormContext } from 'react-hook-form';
 
 import FilePreview from '@/components/forms/FilePreview';
-
 import { FileWithPreview } from '@/types/dropzone';
 
 type DropzoneInputProps = {

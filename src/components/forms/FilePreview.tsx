@@ -1,3 +1,5 @@
+import 'react-image-lightbox/style.css';
+
 import * as React from 'react';
 import {
   HiOutlineExternalLink,
@@ -8,10 +10,7 @@ import {
 } from 'react-icons/hi';
 import Lightbox from 'react-image-lightbox';
 
-import 'react-image-lightbox/style.css';
-
 import UnstyledLink from '@/components/links/UnstyledLink';
-
 import { FileWithPreview } from '@/types/dropzone';
 
 type FilePreviewProps = {
