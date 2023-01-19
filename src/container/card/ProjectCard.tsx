@@ -18,17 +18,18 @@ export default function ProjectCard({ card, onClick }: ProjectCardProps) {
     <div
       className={clsxm(
         'flex flex-col justify-between shadow-lg py-2 border border-primary-300 rounded-md ',
-        'shadow-primary-700 group h-[520px] md:h-[600px] pb-4'
+        'group h-[520px] md:h-[600px] pb-4 hover:border-primary-100'
       )}
       onClick={onClick}
     >
       <div>
         <NextImage
+          useSkeleton
           src={card.image}
           alt={card.name}
           width={800}
           height={400}
-          className='w-full'
+          className='w-full group-hover:scale-[1.06] transition-all duration-300'
           imgClassName='rounded-sm'
         />
         <div className='px-4 mt-4 w-full flex flex-col justify-center'>
@@ -51,9 +52,9 @@ export default function ProjectCard({ card, onClick }: ProjectCardProps) {
               </Typography>
             </div>
           </div>
-          <div className='md:space-x-2 space-x-1'>
+          <div className='flex flex-wrap gap-2 mt-2'>
             {card.technologies.map((tech, index) => (
-              <Tag key={index} className='mt-2'>
+              <Tag key={index} className=''>
                 {tech}
               </Tag>
             ))}
@@ -61,7 +62,7 @@ export default function ProjectCard({ card, onClick }: ProjectCardProps) {
           <Typography
             variant='p'
             color='primary'
-            className='md:mt-2 mt-6 font-secondary text-ellipsis text-justify'
+            className='md:mt-4 mt-6 font-secondary text-ellipsis text-justify'
           >
             {card.description}
           </Typography>

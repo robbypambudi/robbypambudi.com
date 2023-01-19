@@ -158,7 +158,7 @@ export default function Home() {
             >
               # These are the technologies I&apos;ve been working with recently.
             </Typography>
-            <div className='flex flex-wrap gap-2 justify-center mt-8'>
+            <div className='flex flex-wrap justify-center mt-8 gap-4'>
               <SkillModal>
                 {({ openModal }) => (
                   <>
@@ -176,7 +176,7 @@ export default function Home() {
           </div>
         </section>
         <section id='projects'>
-          <div className='layout h-screen flex justify-center flex-col'>
+          <div className='layout min-h-screen flex justify-center flex-col md:mt-2 sm:mt-4 mt-6'>
             <div className=''>
               <Typography
                 variant='h2'
@@ -229,7 +229,7 @@ export default function Home() {
           </div>
         </section>
         <section id='contact'>
-          <div className='layout h-screen flex justify-center flex-col'>
+          <div className='layout h-screen flex justify-center flex-col md:mt-2 sm:mt-4 mt-6'>
             <div className=''>
               <Typography
                 variant='h2'
