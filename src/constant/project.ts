@@ -10,8 +10,8 @@ const Project: ProjectDataType[] = [
     team_size: 3,
     image: '/images/projects/schematics-2022.png',
     technologies: ['Next.Js', 'Javascript', 'TailwindCSS', 'Laravel'],
-    url: 'https://github.com/Teche-Corp/schematics-2022-frontend',
-    github: 'https://schematics-2022-frontend.vercel.app/',
+    github: 'https://github.com/Teche-Corp/schematics-2022-frontend',
+    url: 'https://schematics-2022-frontend.vercel.app/',
   },
   {
     name: 'MABA CUP 2022',

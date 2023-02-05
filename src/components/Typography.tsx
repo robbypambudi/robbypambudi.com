@@ -54,7 +54,7 @@ export default function Typography<T extends React.ElementType>({
         [
           variant === 'h1' && 'text-4xl font-bold md:text-6xl',
           variant === 'h2' && 'text-3xl font-semibold md:text-5xl',
-          variant === 'h3' && 'text-2xl font-semibold',
+          variant === 'h3' && 'md:text-2xl font-semibold text-xl',
           variant === 'h4' && 'text-xl font-normal md:text-2xl',
           variant === 'h5' && 'text-lg font-normal md:text-xl',
           variant === 'h6' && 'text-base font-semibold',

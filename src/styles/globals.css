@@ -57,6 +57,11 @@ body {
     background-size: 0 2px, 100% 2px;
   }
 }
+/* #region  /**=========== Background Color Custom =========== */
+.bg-404 {
+  background: linear-gradient(360deg, #0a192f 9.64%, #00007a 100%);
+}
+/* #region  /**=========== Background Color Custom =========== */
 
 /* #region  /**=========== Datepicker =========== */
 .react-datepicker-wrapper {

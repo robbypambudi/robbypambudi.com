@@ -5,7 +5,15 @@ import Navbar from '@/layouts/Navbar';
 import Sidebar from '@/layouts/Sidebar';
 import useDialogStore from '@/store/useDialogStore';
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function Layout({
+  children,
+  viewSidebar = true,
+  viewNavbar = true,
+}: {
+  children: React.ReactNode;
+  viewSidebar?: boolean;
+  viewNavbar?: boolean;
+}) {
   //#region  //*=========== Store ===========
   const open = useDialogStore.useOpen();
   const state = useDialogStore.useState();
@@ -15,8 +23,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className='overflow-hidden'>
-      <Navbar />
-      <Sidebar />
+      {viewNavbar && <Navbar />}
+      {viewSidebar && <Sidebar />}
       {children}
       <BaseDialog
         onClose={handleClose}
