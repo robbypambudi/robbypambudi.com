@@ -15,6 +15,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import Button from '@/components/buttons/Button';
 import Input from '@/components/forms/Input';
 import TextArea from '@/components/forms/TextArea';
+import ButtonLink from '@/components/links/ButtonLink';
 import SEO from '@/components/SEO';
 import Typography from '@/components/Typography';
 import Project from '@/constant/project';
@@ -38,7 +39,7 @@ export default function Home() {
 
   const { handleSubmit } = methods;
 
-  const { mutateAsync: sendEmail } = useMutationToast<
+  const { mutateAsync: sendEmail, isLoading } = useMutationToast<
     ApiReturn<unknown>,
     FormData
   >(
@@ -102,7 +103,9 @@ export default function Home() {
                   </Button>
                 </div>
               </div>
-              <div></div>
+              <div className='overflow-hidden'>
+                <div id='gitgraph' className=' absolute'></div>
+              </div>
             </div>
           </div>
         </section>
@@ -229,6 +232,9 @@ export default function Home() {
                 ))}
               </Swiper>
             </div>
+            <div className='flex items-center justify-center'>
+              <ButtonLink href='/projects'>View More</ButtonLink>
+            </div>
           </div>
         </section>
         <section id='contact'>
@@ -268,7 +274,11 @@ export default function Home() {
                     />
                     <Input id='name' label='Name' placeholder='Robby Pambudi' />
                     <TextArea id='message' label='Message' placeholder='Hai' />
-                    <Button type='submit' className='mt-4'>
+                    <Button
+                      type='submit'
+                      className='mt-4'
+                      isLoading={isLoading}
+                    >
                       Let&apos;s Collaborate
                     </Button>
                   </div>

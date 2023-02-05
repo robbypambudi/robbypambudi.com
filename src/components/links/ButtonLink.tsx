@@ -32,7 +32,7 @@ const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
     {
       children,
       className,
-      variant = 'bone',
+      variant = 'primary',
       size = 'medium',
       isIcon = false,
       leftIcon: LeftIcon,
