@@ -70,13 +70,10 @@ export default function Home() {
 
   return (
     <Layout>
-      <SEO
-        title='Home'
-        description='is a portfolio website to showcase projects and as a medium for sharing a knowledge'
-      />
+      <SEO description='is a portfolio website to showcase projects and as a medium for sharing a knowledge' />
       <main className='bg-primary-900'>
-        <section id='hero'>
-          <div className='layout h-screen flex flex-col justify-center'>
+        <section id='hero' className='relative'>
+          <div className='layout h-screen flex flex-col justify-center z-10'>
             <div className='md:grid md:grid-cols-3'>
               <div className='md:col-span-2 '>
                 <div className='space-y-2'>
@@ -98,6 +95,11 @@ export default function Home() {
                     rightIcon={FiArrowRight}
                     rightIconClassName='group-hover:rotate-90 duration-300'
                     className='group'
+                    onClick={() =>
+                      scrollBy({
+                        top: document.getElementById('about')?.offsetTop ?? 0,
+                      })
+                    }
                   >
                     View Work
                   </Button>

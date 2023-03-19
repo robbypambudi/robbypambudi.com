@@ -11,7 +11,6 @@ const links = [
   { href: '#about', label: 'About' },
   { href: '#skills', label: 'Skills' },
   { href: '#projects', label: 'Projects' },
-  { href: '/blog', label: 'Blog' },
   { href: '#contact', label: 'Contact' },
 ];
 
@@ -27,7 +26,6 @@ export default function Navbar() {
       <div className='mx-auto flex h-16 w-11/12 items-center justify-between gap-x-1 md:h-24 md:w-[98%] lg:w-11/12'>
         <UnstyledLink href='/' className='font-bold hover:text-primary-100'>
           <NextImage
-            className='w-20 md:w-32'
             alt='Robby Pambudi Logo'
             src='/images/logo.png'
             width='75'

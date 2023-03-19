@@ -14,9 +14,9 @@ const config: DefaultSeoProps = {
     site: '@site',
     cardType: 'summary_large_image',
   },
-  titleTemplate: '%s | RobbyPambudi',
+  titleTemplate: '%s | Robby Pambudi',
   description: 'this is a description',
-  defaultTitle: 'RobbyPambudi',
+  defaultTitle: 'Robby Pambudi',
   additionalLinkTags: [
     {
       rel: 'icon',
