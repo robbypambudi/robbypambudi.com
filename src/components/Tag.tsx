@@ -25,7 +25,7 @@ export default function Tag({
           size === 'base' && ['py-0.5 text-xs'],
           size === 'lg' && ['py-1 text-sm'],
         ],
-        'inline-block rounded-full bg-primary-300 px-3 font-medium text-primary-500',
+        'inline-block rounded-full bg-primary-400 px-3 font-medium text-blue-500',
         className
       )}
       {...rest}

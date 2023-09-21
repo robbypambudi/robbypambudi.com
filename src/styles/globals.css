@@ -4,13 +4,13 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply font-primary;
-}
-
 @layer base {
   html {
     @apply scroll-smooth;
+  }
+  body {
+    @apply font-primary;
+    @apply text-typo;
   }
 
   @media screen and (max-width: 1024px) {

@@ -16,8 +16,8 @@ export default function SkillCard({ card, onClick }: SkillCardProps) {
     <button
       className={clsxm(
         'md:h-[220px] md:w-[220px] flex flex-col items-center justify-center shadow-lg',
-        'shadow-primary-700 hover:scale-[1.05] duration-300',
-        'h-[150px] w-[150px] '
+        'shadow-2xl shadow-blue-500/20 hover:scale-[1.05] duration-300',
+        'h-[150px] w-[150px] bg-primary-800 rounded-lg '
       )}
       onClick={onClick}
     >

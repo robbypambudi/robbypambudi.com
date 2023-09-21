@@ -111,42 +111,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section id='about'>
-          <div className='layout h-screen flex flex-col justify-center'>
-            <div className='grid md:grid-cols-2 gap-x-8 grid-cols-1'>
-              <div className='flex flex-col justify-center md:items-end'>
-                <Typography
-                  variant='h2'
-                  as='h2'
-                  color='primary'
-                  className='underline decoration-danger-500'
-                >
-                  About
-                </Typography>
-                <Typography
-                  variant='h3'
-                  as='h3'
-                  color='primary'
-                  className='md:text-end mt-4'
-                >
-                  Hi, I&apos;m Robby, nice to meet you. Please take a look
-                  around.
-                </Typography>
-              </div>
-              <div className='flex items-end'>
-                <Typography
-                  color='primary'
-                  variant='p'
-                  className='text-justify md:mt-0 mt-4'
-                >
-                  I&apos;m a passionate about building excellent software that
-                  improves the lives of around me. I specialize in creating
-                  software for the web, mobile, and desktop.
-                </Typography>
-              </div>
-            </div>
-          </div>
-        </section>
         <section id='skills'>
           <div className='layout min-h-screen'>
             <div className=''>
@@ -166,7 +130,7 @@ export default function Home() {
             >
               # These are the technologies I&apos;ve been working with recently.
             </Typography>
-            <div className='flex flex-wrap justify-center mt-8 gap-4'>
+            <div className='flex flex-wrap justify-center mt-8 gap-x-6 gap-y-10'>
               <SkillModal>
                 {({ openModal }) => (
                   <>
@@ -228,7 +192,7 @@ export default function Home() {
                 className='z-0'
               >
                 {Project.map((project, index) => (
-                  <SwiperSlide key={index}>
+                  <SwiperSlide key={index} className='px-2'>
                     <ProjectCard card={project} key={index} />
                   </SwiperSlide>
                 ))}

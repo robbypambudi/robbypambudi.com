@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import CollapsibleText from '@/components/CollapsibleText';
 import ButtonLink from '@/components/links/ButtonLink';
 import { UnstyledLinkProps } from '@/components/links/UnstyledLink';
 import NextImage from '@/components/NextImage';
@@ -17,8 +18,8 @@ export default function ProjectCard({ card, onClick }: ProjectCardProps) {
   return (
     <div
       className={clsxm(
-        'flex flex-col justify-between shadow-lg py-2 border border-primary-300 rounded-md ',
-        'group h-[520px] md:h-[600px] pb-4 hover:border-primary-100'
+        'flex flex-col justify-between shadow-lg py-2 border border-primary-300 rounded-md',
+        'group h-[400px] md:h-[480px] pb-4 hover:border-primary-100 overflow-y-auto overflow-x-hidden'
       )}
       onClick={onClick}
     >
@@ -59,13 +60,7 @@ export default function ProjectCard({ card, onClick }: ProjectCardProps) {
               </Tag>
             ))}
           </div>
-          <Typography
-            variant='p'
-            color='primary'
-            className='md:mt-4 mt-6 font-secondary text-ellipsis text-justify'
-          >
-            {card.description}
-          </Typography>
+          <CollapsibleText className='mt-4'>{card.description}</CollapsibleText>
         </div>
       </div>
       <div className='mt-2 pl-4 flex gap-x-4'>

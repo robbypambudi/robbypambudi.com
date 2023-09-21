@@ -11,12 +11,16 @@ module.exports = {
       },
       colors: {
         primary: {
-          100: '#ccd6f6',
-          300: '#8892b0',
+          50: '#787a89',
+          100: '#626475',
+          200: '#4b4d61',
+          300: '#35374e',
+          400: '#1e213a',
           500: '#1e213a',
-          700: '#040c16',
-          800: '#00007A',
-          900: '#0a192f',
+          600: '#1b1e34',
+          700: '#181a2e',
+          800: '#151729',
+          900: '#121423',
         },
         danger: {
           100: '#ffbaba',
@@ -35,8 +39,23 @@ module.exports = {
           500: '#4cd137',
           900: '#2f9e0f',
         },
+        typo: {
+          DEFAULT: '#FFFFFF',
+          secondary: '#F9F9F9',
+          tertiary: '#999CA0',
+          icons: '#999CA0',
+          divider: '#EBEBEB',
+          outline: '#D9D9D9',
+        },
       },
     },
+
   },
-  plugins: [require('@tailwindcss/forms')],
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/container-queries'),
+    require('tailwindcss-animate'),
+  ],
 };
+

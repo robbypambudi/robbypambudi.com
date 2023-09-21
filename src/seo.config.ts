@@ -7,7 +7,7 @@ const config: DefaultSeoProps = {
     type: 'website',
     locale: 'en_IE',
     url: 'https://www.robbypambudi.com/',
-    siteName: 'SiteName',
+    siteName: 'Robby Pambudi',
   },
   twitter: {
     handle: '@handle',
@@ -15,7 +15,8 @@ const config: DefaultSeoProps = {
     cardType: 'summary_large_image',
   },
   titleTemplate: '%s | Robby Pambudi',
-  description: 'this is a description',
+  description:
+    'Explore my thoughts, experiences, and personal interests. Get to know more about me and what I enjoy in life.',
   defaultTitle: 'Robby Pambudi',
   additionalLinkTags: [
     {
