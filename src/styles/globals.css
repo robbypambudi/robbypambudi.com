@@ -172,3 +172,79 @@
   @apply !bg-primary-500;
 }
 /* #endregion  /**======== Datepicker =========== */
+
+:root {
+  --background-color: #181a2e; /* Warna latar belakang */
+
+  --secondary-glow: conic-gradient(
+    from 10deg at 50% 50%,
+    var(--background-color) 0deg,
+    /* Menggunakan warna latar belakang sebagai awal gradien */ #ae77b2 55deg,
+    #97b5da 120deg,
+    #0099ca 160deg
+  );
+
+  --third-glow: conic-gradient(
+    from 90deg at 50% 50%,
+    var(--background-color) 0deg,
+    /* Menggunakan warna latar belakang sebagai awal gradien */ #e24e6b 160deg,
+    #7ed2da 120deg,
+    #8bdce0 55deg
+  );
+}
+
+.hero::before,
+.hero::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  opacity: 0.8;
+}
+
+.hero::before {
+  background: var(--third-glow);
+  border-radius: 50%;
+  width: 20vw;
+  height: 20vw;
+  margin-left: -50px;
+  filter: blur(90px);
+  top: calc(50vh - 20vw / 2);
+  left: calc(40vw - 50vw / 2);
+  animation: animateBefore 20s cubic-bezier(0.47, 0, 0.745, 0.715) infinite;
+}
+
+.hero::after {
+  background: var(--secondary-glow);
+  border-radius: 50%;
+  width: 200px;
+  height: 400px;
+  filter: blur(90px);
+  top: calc(50vh - 200px / 2);
+  left: calc(95vw);
+  animation: animateAfter 20s cubic-bezier(0.47, 0, 0.745, 0.715) infinite;
+}
+
+@keyframes animateBefore {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(120px) scale(0.8);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes animateAfter {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-50px) scale(0.5);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

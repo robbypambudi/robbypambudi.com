@@ -22,7 +22,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className={clsxm('fixed top-0 z-30 w-full bg-primary-900')}>
+    <nav className={clsxm('fixed top-0 z-30 w-full')}>
       <div className='mx-auto flex h-16 w-11/12 items-center justify-between gap-x-1 md:h-24 md:w-[98%] lg:w-11/12'>
         <UnstyledLink href='/' className='font-bold hover:text-primary-100'>
           <NextImage

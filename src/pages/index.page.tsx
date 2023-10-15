@@ -71,8 +71,8 @@ export default function Home() {
   return (
     <Layout>
       <SEO description='is a portfolio website to showcase projects and as a medium for sharing a knowledge' />
-      <main className='bg-primary-900'>
-        <section id='hero' className='relative'>
+      <main className='bg-primary-500 z-0'>
+        <section id='hero' className='relative hero z-10'>
           <div className='layout h-screen flex flex-col justify-center z-10'>
             <div className='md:grid md:grid-cols-3'>
               <div className='md:col-span-2 '>
