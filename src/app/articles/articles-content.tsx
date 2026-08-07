@@ -14,7 +14,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { formatArticleDate, type Article } from '@/lib/articles';
+import { type Article, formatArticleDate } from '@/lib/articles';
 
 const containerVariants = {
   hidden: { opacity: 0 },

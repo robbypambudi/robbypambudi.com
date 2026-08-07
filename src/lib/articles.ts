@@ -1,4 +1,4 @@
-import { articles, type Article } from '#site/content';
+import { type Article, articles } from '#site/content';
 
 const isProduction = process.env.NODE_ENV === 'production';
 

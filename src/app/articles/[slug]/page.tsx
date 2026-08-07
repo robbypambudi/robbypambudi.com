@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import { Link } from 'next-view-transitions';
 import { notFound } from 'next/navigation';
+import { Link } from 'next-view-transitions';
 
 import { formatArticleDate, getArticle, getArticleSlugs } from '@/lib/articles';
 

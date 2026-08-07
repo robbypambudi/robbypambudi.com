@@ -14,7 +14,7 @@ import {
 } from '@tabler/icons-react';
 import { motion } from 'motion/react';
 import type React from 'react';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { Button } from '@/components/ui/button';
 
@@ -100,9 +100,21 @@ function prefersReducedMotion() {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 }
 
+function createInitialCards(): Card[] {
+  const pairs = [...TECH_STACK, ...TECH_STACK];
+  const shuffled = shuffleArray(pairs);
+  return shuffled.map((tech, idx) => ({
+    id: `${idx}-${tech.key}`,
+    techIcon: tech.icon,
+    techKey: tech.key,
+    flipped: false,
+    matched: false,
+  }));
+}
+
 export default function CardGame({ entranceReady = true }: CardGameProps) {
   const [gameState, setGameState] = useState<GameState>('idle');
-  const [cards, setCards] = useState<Card[]>([]);
+  const [cards, setCards] = useState<Card[]>(createInitialCards);
   const [firstCard, setFirstCard] = useState<Card | null>(null);
   const [secondCard, setSecondCard] = useState<Card | null>(null);
   const [isFlipping, setIsFlipping] = useState(false);
@@ -112,25 +124,19 @@ export default function CardGame({ entranceReady = true }: CardGameProps) {
   const idleIndexRef = useRef(0);
   const previousSequenceIndicesRef = useRef<number[]>([]);
 
-  const initializeCards = useCallback(() => {
-    const pairs = [...TECH_STACK, ...TECH_STACK];
-    const shuffled = shuffleArray(pairs);
-    return shuffled.map((tech, idx) => ({
-      id: `${idx}-${tech.key}`,
-      techIcon: tech.icon,
-      techKey: tech.key,
-      flipped: false,
-      matched: false,
-    }));
-  }, []);
+  const viewState: GameState =
+    gameState === 'playing' &&
+    cards.length > 0 &&
+    cards.every((card) => card.matched)
+      ? 'ended'
+      : gameState;
 
   const startGame = () => {
     if (idleIntervalRef.current) {
       clearInterval(idleIntervalRef.current);
       idleIntervalRef.current = null;
     }
-    const newCards = initializeCards();
-    setCards(newCards);
+    setCards(createInitialCards());
     setFirstCard(null);
     setSecondCard(null);
     setGameState('playing');
@@ -185,16 +191,6 @@ export default function CardGame({ entranceReady = true }: CardGameProps) {
   }, [firstCard, secondCard, isFlipping]);
 
   useEffect(() => {
-    if (
-      gameState === 'playing' &&
-      cards.length > 0 &&
-      cards.every((card) => card.matched)
-    ) {
-      setGameState('ended');
-    }
-  }, [cards, gameState]);
-
-  useEffect(() => {
     if (gameState === 'idle' && cards.length > 0 && !prefersReducedMotion()) {
       idleIntervalRef.current = setInterval(() => {
         const sequenceIndex = idleIndexRef.current % idleFlipSequence.length;
@@ -225,14 +221,6 @@ export default function CardGame({ entranceReady = true }: CardGameProps) {
       }
     };
   }, [gameState, cards.length]);
-
-  useEffect(() => {
-    if (cards.length === 0) {
-      setCards(initializeCards());
-      setGameState('idle');
-      setAnimationKey((prev) => prev + 1);
-    }
-  }, [cards.length, initializeCards]);
 
   return (
     <div className='w-full border-4 border-border rounded-lg bg-main p-3 sm:p-4 md:p-6 flex flex-col gap-3 sm:gap-4 overflow-hidden'>
@@ -290,7 +278,7 @@ export default function CardGame({ entranceReady = true }: CardGameProps) {
       </motion.div>
 
       <div className='flex justify-center'>
-        {gameState === 'idle' && (
+        {viewState === 'idle' && (
           <Button
             onClick={startGame}
             size='lg'
@@ -301,7 +289,7 @@ export default function CardGame({ entranceReady = true }: CardGameProps) {
             Start Game
           </Button>
         )}
-        {gameState === 'playing' && (
+        {viewState === 'playing' && (
           <Button
             onClick={startGame}
             size='lg'
@@ -313,7 +301,7 @@ export default function CardGame({ entranceReady = true }: CardGameProps) {
             Restart Game
           </Button>
         )}
-        {gameState === 'ended' && (
+        {viewState === 'ended' && (
           <Button
             onClick={startGame}
             size='lg'

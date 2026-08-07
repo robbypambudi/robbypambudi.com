@@ -2,8 +2,8 @@
 
 import { IconMenu, IconMoon, IconSun } from '@tabler/icons-react';
 import { AnimatePresence, motion } from 'motion/react';
-import { Link } from 'next-view-transitions';
 import { useTheme } from 'next-themes';
+import { Link } from 'next-view-transitions';
 import { useContext, useEffect, useState } from 'react';
 
 import { FirstLoadContext } from '@/components/layout/first-load-animation';
@@ -17,6 +17,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
+import { useIsClient } from '@/hooks/use-is-client';
 import data from '@/lib/data.json';
 
 const containerVariants = {
@@ -76,12 +77,8 @@ export default function Navbar() {
   const { navbar, personal } = data;
   const { setTheme, resolvedTheme, theme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const mounted = useIsClient();
   const firstLoadComplete = useContext(FirstLoadContext);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {

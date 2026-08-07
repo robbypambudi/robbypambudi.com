@@ -1,8 +1,7 @@
 import { defineConfig, globalIgnores } from 'eslint/config';
-
-import eslintConfigPrettier from 'eslint-config-prettier';
 import nextVitals from 'eslint-config-next/core-web-vitals';
 import nextTs from 'eslint-config-next/typescript';
+import eslintConfigPrettier from 'eslint-config-prettier';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import unusedImports from 'eslint-plugin-unused-imports';
 
@@ -18,8 +17,6 @@ const eslintConfig = defineConfig([
     rules: {
       'no-console': 'warn',
       'react/display-name': 'off',
-      // Common for hydration / derived UI state; keep as warn for now
-      'react-hooks/set-state-in-effect': 'warn',
       'simple-import-sort/imports': 'warn',
       'simple-import-sort/exports': 'warn',
       '@typescript-eslint/no-unused-vars': 'off',

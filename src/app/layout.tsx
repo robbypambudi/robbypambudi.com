@@ -1,3 +1,5 @@
+import './globals.css';
+
 import type { Metadata } from 'next';
 import { DM_Sans } from 'next/font/google';
 import { ViewTransitions } from 'next-view-transitions';
@@ -7,8 +9,6 @@ import Navbar from '@/components/navbar';
 import AppProvider from '@/components/providers/app-provider';
 import Footer from '@/components/sections/footer';
 import data from '@/lib/data.json';
-
-import './globals.css';
 
 const dmSans = DM_Sans({
   variable: '--font-dm-sans',

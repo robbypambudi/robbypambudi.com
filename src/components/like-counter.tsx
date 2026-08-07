@@ -7,6 +7,7 @@ import * as React from 'react';
 import toast from 'react-hot-toast';
 
 import { Button } from '@/components/ui/button';
+import { useIsClient } from '@/hooks/use-is-client';
 import { cn } from '@/lib/utils';
 
 const VISITOR_KEY = 'rp_visitor_id';
@@ -89,20 +90,18 @@ export default function LikeCounter({
   compact = false,
 }: LikeCounterProps) {
   const queryClient = useQueryClient();
-  const [visitorId, setVisitorId] = React.useState('');
-  const [mounted, setMounted] = React.useState(false);
-
-  React.useEffect(() => {
-    setVisitorId(getOrCreateVisitorId());
-    setMounted(true);
-  }, []);
+  const isClient = useIsClient();
+  const visitorId = React.useMemo(
+    () => (isClient ? getOrCreateVisitorId() : ''),
+    [isClient],
+  );
 
   const queryKey = ['likes', target, visitorId] as const;
 
   const { data, isLoading, isError } = useQuery({
     queryKey,
     queryFn: () => fetchLikeStatus(target, visitorId),
-    enabled: mounted && Boolean(visitorId),
+    enabled: isClient && Boolean(visitorId),
     staleTime: 30_000,
   });
 
