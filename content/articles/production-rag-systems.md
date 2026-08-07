@@ -6,7 +6,7 @@ tags:
   - AI
   - RAG
   - Engineering
-  - draft: false
+draft: false
 ---
 
 Building a retrieval-augmented generation (RAG) prototype is already a complex task. When the system is intended to be used in a production environment, we have the responsibility to keep it accurate under high load, cost pressure, and various user queries that are not always clean or well-structured. This makes production RAG a different and more challenging problem.

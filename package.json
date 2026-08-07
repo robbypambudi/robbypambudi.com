@@ -14,7 +14,7 @@
     "format:write": "prettier --write .",
     "prepare": "husky",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "velite && tsc --noEmit",
     "content:check": "velite check"
   },
   "engines": {
