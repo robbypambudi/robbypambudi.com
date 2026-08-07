@@ -1,37 +1,25 @@
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
-import { FlatCompat } from '@eslint/eslintrc';
+import { defineConfig, globalIgnores } from 'eslint/config';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+import eslintConfigPrettier from 'eslint-config-prettier';
+import nextVitals from 'eslint-config-next/core-web-vitals';
+import nextTs from 'eslint-config-next/typescript';
+import simpleImportSort from 'eslint-plugin-simple-import-sort';
+import unusedImports from 'eslint-plugin-unused-imports';
 
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
-
-const eslintConfig = [
+const eslintConfig = defineConfig([
+  ...nextVitals,
+  ...nextTs,
+  eslintConfigPrettier,
   {
-    ignores: ['.next/**', 'node_modules/**', 'out/**'],
-  },
-  ...compat.config({
-    env: {
-      browser: true,
-      es2021: true,
-      node: true,
+    plugins: {
+      'simple-import-sort': simpleImportSort,
+      'unused-imports': unusedImports,
     },
-    extends: [
-      'eslint:recommended',
-      'next',
-      'next/core-web-vitals',
-      'prettier',
-      'plugin:@typescript-eslint/recommended',
-    ],
-    parser: '@typescript-eslint/parser',
-    plugins: ['@typescript-eslint', 'simple-import-sort', 'unused-imports'],
     rules: {
-      'no-unused-vars': 'off',
       'no-console': 'warn',
       'react/display-name': 'off',
+      // Common for hydration / derived UI state; keep as warn for now
+      'react-hooks/set-state-in-effect': 'warn',
       'simple-import-sort/imports': 'warn',
       'simple-import-sort/exports': 'warn',
       '@typescript-eslint/no-unused-vars': 'off',
@@ -46,11 +34,18 @@ const eslintConfig = [
         },
       ],
     },
-    globals: {
-      React: true,
-      JSX: true,
-    },
-  }),
-];
+  },
+  globalIgnores([
+    '.next/**',
+    'out/**',
+    'build/**',
+    'next-env.d.ts',
+    '.velite/**',
+    'public/static/**',
+    '.lintstagedrc.js',
+    '.prettierrc.js',
+    'commitlint.config.js',
+  ]),
+]);
 
 export default eslintConfig;

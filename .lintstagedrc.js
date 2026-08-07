@@ -1,10 +1,14 @@
 module.exports = {
-  // Type check TypeScript files
-  '**/*.(ts|tsx)': () => 'pnpm typecheck',
+  '**/*.{ts,tsx}': (filenames) => [
+    'pnpm typecheck',
+    `eslint --fix --max-warnings=0 ${filenames.map((f) => `"${f}"`).join(' ')}`,
+    `prettier --write ${filenames.map((f) => `"${f}"`).join(' ')}`,
+  ],
 
-  // Lint & Prettify TS and JS files
-  '**/*.(ts|tsx|js)': () => [`pnpm lint`, `pnpm format:write`],
+  // Format root tooling JS without forcing eslint on CJS configs
+  '*.{js,mjs,cjs}': (filenames) =>
+    `prettier --write ${filenames.map((f) => `"${f}"`).join(' ')}`,
 
-  // Prettify only Markdown and JSON files
-  '**/*.(md|json)': () => `pnpm format:write`,
+  '**/*.{md,json}': (filenames) =>
+    `prettier --write ${filenames.map((f) => `"${f}"`).join(' ')}`,
 };
