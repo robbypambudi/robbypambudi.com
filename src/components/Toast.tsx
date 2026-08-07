@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 import { toast, ToastBar, Toaster } from 'react-hot-toast';
 import { HiX } from 'react-icons/hi';
@@ -10,9 +12,11 @@ export default function Toast() {
         position='top-center'
         toastOptions={{
           style: {
-            borderRadius: '8px',
-            background: '#333',
-            color: '#fff',
+            borderRadius: '5px',
+            background: 'var(--secondary-background)',
+            color: 'var(--foreground)',
+            border: '2px solid var(--border)',
+            boxShadow: 'var(--shadow)',
           },
         }}
       >
@@ -24,7 +28,7 @@ export default function Toast() {
                 {message}
                 {t.type !== 'loading' && (
                   <button
-                    className='rounded-full p-1 ring-primary-400 transition hover:bg-[#444] focus:outline-none focus-visible:ring'
+                    className='rounded-base p-1 border-2 border-transparent transition hover:border-border focus:outline-none focus-visible:ring-2 focus-visible:ring-ring'
                     onClick={() => toast.dismiss(t.id)}
                   >
                     <HiX />

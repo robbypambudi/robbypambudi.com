@@ -1,0 +1,254 @@
+{
+  "personal": {
+    "name": "Robby Ulung Pambudi",
+    "title": "Software Engineer | CEO, QueryFlow",
+    "bio": "Software Engineer with 4+ years of experience building scalable backend, AI-driven, and cloud-native applications. CEO of QueryFlow—an AI startup building Mantra for exams, assessment, events, and analytics. Experienced in RAG systems, LLM-powered applications, and distributed architectures—delivering production systems serving over 250,000 users in SPMB Jatim 2024–2025.",
+    "company": {
+      "name": "QueryFlow",
+      "role": "CEO",
+      "url": "https://queryflow.id/",
+      "tagline": "Startup AI · Mantra for exams, assessment, events & analytics"
+    }
+  },
+  "navbar": {
+    "links": [
+      { "label": "Experience", "href": "/#experience" },
+      { "label": "Articles", "href": "/articles" },
+      { "label": "Publications", "href": "/publications" },
+      { "label": "Activities", "href": "/activities" },
+      { "label": "Contact", "href": "/#contact" }
+    ]
+  },
+  "education": [
+    {
+      "school": "Sepuluh Nopember Institute of Technology",
+      "degree": "Master of Informatics",
+      "duration": "Feb 2026 – Present",
+      "location": "Surabaya, East Java",
+      "highlights": [
+        "Professor's Research Assistant – Distributed Systems",
+        "Teaching Assistant for Microservices and Application Development"
+      ]
+    },
+    {
+      "school": "Sepuluh Nopember Institute of Technology",
+      "degree": "Bachelor of Informatics — GPA 3.61",
+      "duration": "Sep 2021 – Aug 2025",
+      "location": "Surabaya, East Java",
+      "highlights": [
+        "Teaching Assistant: Data Structures, Fundamental Programming, and Operating Systems",
+        "Finalist of SSG x Hackfest 2024 (Ciputra University)"
+      ]
+    }
+  ],
+  "techSkills": [
+    { "name": "Python", "category": "Languages" },
+    { "name": "TypeScript", "category": "Languages" },
+    { "name": "JavaScript", "category": "Languages" },
+    { "name": "SQL", "category": "Languages" },
+    { "name": "Next.js", "category": "Frameworks" },
+    { "name": "React", "category": "Frameworks" },
+    { "name": "Node.js", "category": "Frameworks" },
+    { "name": "FastAPI", "category": "Frameworks" },
+    { "name": "LangChain", "category": "AI" },
+    { "name": "Docker", "category": "Tools" },
+    { "name": "PostgreSQL", "category": "Data" },
+    { "name": "MongoDB", "category": "Data" },
+    { "name": "MySQL", "category": "Data" },
+    { "name": "Git", "category": "Tools" },
+    { "name": "Ray", "category": "AI" },
+    { "name": "vLLM", "category": "AI" }
+  ],
+  "experience": [
+    {
+      "company": "QueryFlow",
+      "url": "https://queryflow.id/",
+      "role": "CEO",
+      "duration": "Present",
+      "location": "Indonesia",
+      "description": "Founder & CEO of QueryFlow, an AI startup that turns operational problems into digital solutions. Building Mantra—a product for exams, assessment, events, and analytics.",
+      "technologies": ["AI", "Startup", "Product", "Analytics"]
+    },
+    {
+      "company": "Techflouu",
+      "url": "",
+      "role": "Fullstack Engineer",
+      "duration": "Dec 2025 – Present",
+      "location": "Singapore, Remote",
+      "description": "Designed and implemented a scalable multi-tenant architecture supporting 10+ tenants with isolated data and configuration. Optimized multi-tenant queries and data access patterns, reducing response time by up to 40% and improving system reliability.",
+      "technologies": ["Fullstack", "Multi-tenant", "Performance"]
+    },
+    {
+      "company": "Techflouu",
+      "url": "",
+      "role": "Fullstack Developer (Internship)",
+      "duration": "Aug 2025 – Dec 2025",
+      "location": "Singapore, Remote",
+      "description": "Presented technical solutions and project progress to clients, ensuring clear communication and alignment with business requirements. Refactored over 20 legacy modules, improving maintainability and reducing technical debt.",
+      "technologies": ["Fullstack", "Refactoring", "Client delivery"]
+    },
+    {
+      "company": "SPMB Jawa Timur",
+      "url": "",
+      "role": "Fullstack Developer",
+      "duration": "Jan 2024 – Jul 2025",
+      "location": "Surabaya, Remote",
+      "description": "Optimized frontend query performance, improving loading and interaction times by 60% across student and administrative portals. Led development of enrollment, re-enrollment, and score reporting for a system used by over 250k students across East Java.",
+      "technologies": ["Next.js", "Fullstack", "Performance"]
+    },
+    {
+      "company": "Filin Movie",
+      "url": "",
+      "role": "Frontend Developer (Intern)",
+      "duration": "Jul 2023 – Feb 2024",
+      "location": "Surabaya, Remote",
+      "description": "Designed DRM-based protection against illegal downloading and screen sharing, resulting in an 80% reduction in piracy across tests on 8 browsers.",
+      "technologies": ["Frontend", "DRM", "Security"]
+    },
+    {
+      "company": "Aseven Indonesia",
+      "url": "",
+      "role": "Frontend Developer (Freelance)",
+      "duration": "Dec 2022 – Jul 2023",
+      "location": "Surabaya, Remote",
+      "description": "Developed core features for Spectra, a web platform supporting PLN internal operations. Implemented 13 of 30+ key pages including ULP, UP3, Employee, and Parent dashboards with responsive, maintainable UI.",
+      "technologies": ["React", "Dashboards", "PLN"]
+    },
+    {
+      "company": "EMR Berkah Sehat",
+      "url": "",
+      "role": "Frontend Developer (Freelance)",
+      "duration": "Jan 2023 – Apr 2023",
+      "location": "Surabaya, Remote",
+      "description": "Built a scalable HOC for RBAC in a medical app with dynamic route protection using a role-permission matrix (5 roles, 20+ rules).",
+      "technologies": ["React", "RBAC", "Healthcare"]
+    }
+  ],
+  "projects": [
+    {
+      "title": "RAGForge",
+      "description": "Production-ready template for Retrieval-Augmented Generation systems using FastAPI, ChromaDB, and LangChain—built for scalability with dependency injection and Docker-based deployment.",
+      "technologies": ["Python", "LangChain", "ChromaDB", "FastAPI", "Docker"],
+      "demo": "",
+      "repo": "",
+      "period": "Feb 2025 – Jul 2025"
+    },
+    {
+      "title": "DiLLeMA",
+      "description": "Final-year thesis: extensible framework for distributed LLM inference over GPU clusters using Ray and vLLM, with modular RAG pipeline integration for high-throughput workloads.",
+      "technologies": ["Python", "Ray", "vLLM", "Distributed systems"],
+      "demo": "",
+      "repo": "",
+      "period": "Feb 2025 – Jul 2025"
+    },
+    {
+      "title": "Sorting Algorithm Visualization",
+      "description": "Interactive visualization of 17 sorting algorithms with D3.js and Next.js to make algorithm movement easier to understand.",
+      "technologies": ["TypeScript", "D3.js", "Next.js"],
+      "demo": "",
+      "repo": "",
+      "period": "Feb 2022 – Mar 2022"
+    }
+  ],
+  "publications": [
+    {
+      "title": "DiLLeMa: An extensible and scalable framework for distributed large language models (LLMs) inference on multi-GPU clusters",
+      "venue": "SoftwareX, Elsevier, 2026",
+      "doi": "10.1016/j.softx.2026.102537",
+      "url": "https://doi.org/10.1016/j.softx.2026.102537"
+    },
+    {
+      "title": "A Novel Approach to Image Steganography Using Pixel Differencing for Better Data Hiding",
+      "venue": "IEEE ONCON, Beijing, China, Dec 2024",
+      "doi": "10.1109/ONCON62778.2024.10931677",
+      "url": "https://doi.org/10.1109/ONCON62778.2024.10931677"
+    }
+  ],
+  "activities": [
+    {
+      "title": "DigiFlood — Flood Monitoring & Early Warning",
+      "role": "Lead Engineer",
+      "duration": "Feb 2026 – Present",
+      "description": "Led end-to-end development across backend, frontend, and mobile. Integrated YOLO-based detection on drone platforms and collaborated across divisions to align AI models, hardware, and operational requirements for deployment."
+    },
+    {
+      "title": "Indonesian Sustainable Palm Oil (ISPO)",
+      "role": "Software Engineer",
+      "duration": "Mar 2025 – Jul 2025",
+      "description": "Researched ISPO alignment with 10+ regulatory references. Designed a digital certification system for 5k+ users across farmer groups, cooperatives (KUD), ICS, survey institutions, and provincial/regency government offices."
+    },
+    {
+      "title": "WasteTrack 2024",
+      "role": "Software Engineer",
+      "duration": "Aug 2024 – Mar 2025",
+      "description": "Led design and development of a Next.js + Golang system supporting 100+ participants from 34 provinces in the national competition."
+    },
+    {
+      "title": "Bangkit Academy",
+      "role": "Cloud Computing Learning Path",
+      "duration": "Feb 2024 – Jul 2024",
+      "description": "Completed a comprehensive cloud computing course with 98% on-time progress."
+    },
+    {
+      "title": "ITS Software Engineering Laboratory",
+      "role": "Lab Assistant",
+      "duration": "Jul 2023 – Dec 2023",
+      "description": "Liaison between customers and the laboratory for website applications; secured contracts with 5 clients."
+    },
+    {
+      "title": "ITS Expo 2023",
+      "role": "Head of IT Division",
+      "duration": "Dec 2022 – Sep 2023",
+      "description": "Led a team of 27 staff with a 92% completion rate for the division's KPIs."
+    }
+  ],
+  "faq": {
+    "infoPanels": [
+      {
+        "title": "What roles are you targeting?",
+        "icon": "asterisk",
+        "content": "Software engineering roles spanning backend, fullstack, and AI/LLM systems—especially teams shipping production RAG, distributed inference, or high-traffic platforms. I also lead as CEO of QueryFlow (queryflow.id), and bring 4+ years of delivery experience including SPMB Jatim at 250k+ users."
+      },
+      {
+        "title": "What is your AI / LLM depth?",
+        "icon": "brain",
+        "content": "I build RAG systems with LangChain and ChromaDB (RAGForge) and distributed LLM inference with Ray and vLLM (DiLLeMA, published in SoftwareX). I care about production readiness: Docker, dependency injection, and measurable throughput."
+      },
+      {
+        "title": "How do you prove you can scale?",
+        "icon": "settings",
+        "content": "At SPMB Jawa Timur I improved frontend query loading and interaction times by 60% and owned enrollment features for 250k+ students. At Techflouu I cut multi-tenant response time by up to 40% across 10+ tenants."
+      },
+      {
+        "title": "What about your academic foundation?",
+        "icon": "star",
+        "content": "Bachelor of Informatics at ITS (GPA 3.61) and Master of Informatics ongoing. I am a research assistant in distributed systems, a teaching assistant for microservices, and an author on SoftwareX and IEEE ONCON publications."
+      }
+    ]
+  },
+  "socialLinks": [
+    {
+      "platform": "GitHub",
+      "url": "https://github.com/robbypambudi",
+      "icon": "github"
+    },
+    {
+      "platform": "LinkedIn",
+      "url": "https://www.linkedin.com/in/robbypambudi/",
+      "icon": "linkedin"
+    },
+    {
+      "platform": "Email",
+      "url": "mailto:robby.pambudi10@gmail.com",
+      "icon": "mail"
+    }
+  ],
+  "contact": {
+    "getformUrl": "https://getform.io/f/b6d34c9a-635f-461f-8e49-c029ca140cff",
+    "location": "Surabaya, Indonesia",
+    "phone": "+6285257188594",
+    "title": "Get in touch",
+    "description": "Open to software engineering roles and collaborations—backend, AI/LLM, and cloud-native work. Also building QueryFlow (queryflow.id). Based in Surabaya, Indonesia."
+  },
+  "resumePath": "/Robby_Pambudi_CV.pdf"
+}

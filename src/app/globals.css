@@ -1,0 +1,326 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Cool-shifted purple (Robby) — still neo-brutalist purple family */
+  --background: oklch(94.5% 0.025 285);
+  --secondary-background: oklch(100% 0 0);
+  --foreground: oklch(0% 0 0);
+  --main-foreground: oklch(0% 0 0);
+  --main: oklch(62% 0.16 285);
+  --border: oklch(0% 0 0);
+  --ring: oklch(0% 0 0);
+  --overlay: oklch(0% 0 0 / 0.8);
+  --shadow: 4px 4px 0px 0px var(--border);
+  --chart-1: oklch(62% 0.16 285);
+  --chart-2: oklch(75% 0.12 175);
+  --chart-3: oklch(86% 0.14 95);
+  --chart-4: oklch(72% 0.16 35);
+  --chart-5: oklch(70% 0.14 250);
+  --chart-10: oklch(80% 0.12 55);
+  --section-x: 1rem;
+  --section-y: 3rem;
+}
+
+.dark {
+  --background: oklch(28% 0.06 285);
+  --secondary-background: oklch(20% 0.02 285);
+  --foreground: oklch(94% 0.02 285);
+  --main-foreground: oklch(0% 0 0);
+  --main: oklch(68% 0.15 285);
+  --border: oklch(0% 0 0);
+  --ring: oklch(100% 0 0);
+  --shadow: 4px 4px 0px 0px var(--border);
+  --chart-1: oklch(68% 0.15 285);
+  --chart-2: oklch(70% 0.12 175);
+  --chart-3: oklch(80% 0.14 95);
+  --chart-4: oklch(68% 0.16 35);
+  --chart-5: oklch(65% 0.14 250);
+  --chart-10: oklch(75% 0.12 55);
+}
+
+@media (min-width: 640px) {
+  :root {
+    --section-x: 1.5rem;
+    --section-y: 4rem;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --section-x: 3rem;
+    --section-y: 5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --section-x: 4rem;
+    --section-y: 6rem;
+  }
+}
+
+@theme inline {
+  --color-main: var(--main);
+  --color-background: var(--background);
+  --color-secondary-background: var(--secondary-background);
+  --color-foreground: var(--foreground);
+  --color-main-foreground: var(--main-foreground);
+  --color-border: var(--border);
+  --color-overlay: var(--overlay);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-chart-10: var(--chart-10);
+
+  --spacing-boxShadowX: 4px;
+  --spacing-boxShadowY: 4px;
+  --spacing-reverseBoxShadowX: -4px;
+  --spacing-reverseBoxShadowY: -4px;
+  --radius-base: 5px;
+  --shadow-shadow: var(--shadow);
+  --font-weight-base: 500;
+  --font-weight-heading: 700;
+
+  --animate-marquee: marquee 30s linear infinite;
+  --animate-marquee2: marquee2 30s linear infinite;
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes marquee2 {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-dm-sans), sans-serif;
+    color-scheme: light dark;
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground font-medium;
+    font-family: var(--font-dm-sans), sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+    line-height: 1.6;
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold;
+    font-family: var(--font-dm-sans), sans-serif;
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  button,
+  [role='button'],
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Don't force min size on every link — breaks marquees & inline text */
+  a.touch-target,
+  nav a,
+  .ui-button {
+    min-height: 44px;
+  }
+}
+
+@layer utilities {
+  .section-shell {
+    padding-inline: max(var(--section-x), env(safe-area-inset-left));
+    padding-block: var(--section-y);
+  }
+
+  .section-shell-x {
+    padding-inline: max(var(--section-x), env(safe-area-inset-left));
+  }
+
+  .container-readable {
+    width: 100%;
+    max-width: 72rem;
+    margin-inline: auto;
+  }
+
+  .break-words-safe {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+}
+
+/* Neo-brutalist article prose (Velite Markdown HTML) */
+.article-prose {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--foreground);
+}
+
+.article-prose > * + * {
+  margin-top: 1.25em;
+}
+
+.article-prose h2 {
+  margin-top: 2em;
+  margin-bottom: 0.6em;
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 0.35em;
+}
+
+.article-prose h3 {
+  margin-top: 1.6em;
+  margin-bottom: 0.45em;
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
+}
+
+.article-prose p,
+.article-prose ul,
+.article-prose ol {
+  color: color-mix(in oklch, var(--foreground) 88%, transparent);
+}
+
+.article-prose ul,
+.article-prose ol {
+  padding-left: 1.35em;
+}
+
+.article-prose li + li {
+  margin-top: 0.4em;
+}
+
+.article-prose a {
+  color: var(--main);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.article-prose strong {
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.article-prose blockquote {
+  border: 2px solid var(--border);
+  box-shadow: var(--shadow);
+  background: var(--secondary-background);
+  padding: 0.85em 1em;
+  margin-inline: 0;
+  font-style: italic;
+}
+
+.article-prose hr {
+  border: 0;
+  border-top: 2px solid var(--border);
+  margin-block: 2em;
+}
+
+.article-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  display: block;
+  overflow-x: auto;
+}
+
+.article-prose th,
+.article-prose td {
+  border: 2px solid var(--border);
+  padding: 0.55em 0.75em;
+  text-align: left;
+  vertical-align: top;
+}
+
+.article-prose th {
+  background: var(--main);
+  color: var(--main-foreground);
+  font-weight: 700;
+}
+
+.article-prose :not(pre) > code {
+  border: 2px solid var(--border);
+  background: var(--secondary-background);
+  padding: 0.1em 0.35em;
+  font-size: 0.9em;
+  font-weight: 600;
+}
+
+.article-prose pre {
+  border: 2px solid var(--border);
+  box-shadow: var(--shadow);
+  background: var(--secondary-background);
+  padding: 1rem 1.1rem;
+  overflow-x: auto;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.article-prose pre code {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  font-size: inherit;
+  font-weight: 500;
+}
+
+.article-prose img {
+  border: 2px solid var(--border);
+  box-shadow: var(--shadow);
+  max-width: 100%;
+  height: auto;
+}
+
+.article-prose figure {
+  margin-inline: 0;
+}
+
+.article-prose figcaption {
+  margin-top: 0.5em;
+  font-size: 0.875rem;
+  color: color-mix(in oklch, var(--foreground) 65%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-marquee2 {
+    animation: none !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}

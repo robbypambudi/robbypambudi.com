@@ -1,0 +1,137 @@
+'use client';
+
+import { IconBrandGithub, IconExternalLink } from '@tabler/icons-react';
+import { motion } from 'motion/react';
+import Link from 'next/link';
+
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
+import data from '@/lib/data.json';
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: [0.4, 0, 0.2, 1] as const,
+    },
+  },
+};
+
+export default function Projects() {
+  const { projects } = data;
+
+  return (
+    <section id='projects' className='section-shell'>
+      <div className='mx-auto max-w-7xl'>
+        <motion.h2
+          className='text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8 md:mb-12'
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.5 }}
+        >
+          Projects
+        </motion.h2>
+        <motion.div
+          className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6'
+          variants={containerVariants}
+          initial='hidden'
+          whileInView='visible'
+          viewport={{ once: true, margin: '-50px' }}
+        >
+          {projects.map((project) => (
+            <motion.div key={project.title} variants={cardVariants}>
+              <Card className='h-full hover:shadow-lg transition-shadow duration-300 bg-secondary-background justify-between'>
+                <div className='flex flex-col gap-4'>
+                  <CardHeader>
+                    <CardTitle className='text-lg md:text-xl'>
+                      {project.title}
+                    </CardTitle>
+                    {project.period ? (
+                      <p className='text-sm text-foreground/70'>
+                        {project.period}
+                      </p>
+                    ) : null}
+                    <CardDescription className='text-base md:text-sm leading-relaxed'>
+                      {project.description}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className='space-y-4'>
+                    <div className='flex flex-wrap gap-2'>
+                      {project.technologies.map((tech) => (
+                        <Badge key={tech} variant='chart3'>
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                </div>
+
+                {(project.repo || project.demo) && (
+                  <CardFooter className='flex gap-3 md:gap-4'>
+                    {project.repo ? (
+                      <Button
+                        asChild
+                        className='flex-1 bg-chart-2 h-12 md:h-10'
+                      >
+                        <Link
+                          href={project.repo}
+                          target='_blank'
+                          rel='noopener noreferrer'
+                          aria-label={`View source code for ${project.title}`}
+                        >
+                          <IconBrandGithub
+                            className='size-5 md:size-4'
+                            aria-hidden='true'
+                          />
+                          <span className='text-base md:text-sm'>Code</span>
+                        </Link>
+                      </Button>
+                    ) : null}
+                    {project.demo ? (
+                      <Button asChild className='flex-1 bg-main h-12 md:h-10'>
+                        <Link
+                          href={project.demo}
+                          target='_blank'
+                          rel='noopener noreferrer'
+                          aria-label={`View live demo of ${project.title}`}
+                        >
+                          <IconExternalLink
+                            className='size-5 md:size-4'
+                            aria-hidden='true'
+                          />
+                          <span className='text-base md:text-sm'>Demo</span>
+                        </Link>
+                      </Button>
+                    ) : null}
+                  </CardFooter>
+                )}
+              </Card>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}

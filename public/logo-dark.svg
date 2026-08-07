@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" role="img" aria-label="Robby">
+  <title>Robby</title>
+  <rect x="12" y="12" width="220" height="60" fill="#000"/>
+  <rect x="4" y="4" width="220" height="60" fill="#3d2a52" stroke="#000" stroke-width="4"/>
+  <text
+    x="114"
+    y="44"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    font-family="DM Sans, Arial Black, Helvetica Neue, sans-serif"
+    font-size="34"
+    font-weight="700"
+    fill="#ebebeb"
+    letter-spacing="-0.4"
+  >Robby</text>
+</svg>

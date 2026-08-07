@@ -1,6 +1,7 @@
 .next
 node_modules
 package.json
+pnpm-lock.yaml
 yarn.lock
 next.config.js
 postcss.config.js
