@@ -130,7 +130,7 @@ export default function Contact() {
             </div>
 
             <motion.div
-              className='grid grid-cols-1 sm:grid-cols-3 gap-3'
+              className='mx-auto flex w-full max-w-xl flex-wrap items-center justify-center gap-3'
               variants={containerVariants}
               initial='hidden'
               whileInView='visible'
@@ -139,12 +139,16 @@ export default function Contact() {
               {socialLinks.map((link) => {
                 const Icon = iconMap[link.icon.toLowerCase()] || IconMail;
                 return (
-                  <motion.div key={link.platform} variants={itemVariants}>
+                  <motion.div
+                    key={link.platform}
+                    variants={itemVariants}
+                    className='min-w-[9.5rem] flex-1 sm:flex-none'
+                  >
                     <Button
                       variant='default'
                       size='xl'
                       asChild
-                      className='w-full h-12 sm:h-14'
+                      className='h-12 w-full sm:h-14 sm:min-w-[9.5rem]'
                     >
                       <Link
                         href={link.url}
@@ -157,9 +161,10 @@ export default function Contact() {
                             : 'noopener noreferrer'
                         }
                         aria-label={`Contact via ${link.platform}`}
+                        className='inline-flex items-center justify-center gap-2'
                       >
-                        <Icon className='size-5' aria-hidden='true' />
-                        <span className='text-base md:text-sm'>
+                        <Icon className='size-5 shrink-0' aria-hidden='true' />
+                        <span className='text-sm font-bold sm:text-base'>
                           {link.platform}
                         </span>
                       </Link>
