@@ -1,10 +1,8 @@
 ---
 title: Notes on Distributed LLM Inference at Practical Scale
-
 description: Engineering notes from my experience working with distributed LLM inference—trade-offs in partitioning, communication overhead, and when a distributed approach actually provides benefits compared to a single stronger node.
-
 date: 2026-08-07
-
+category: Technology
 tags:
   - LLM
   - Distributed Systems

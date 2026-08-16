@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { Link } from 'next-view-transitions';
 
+import ArticleViewCount from '@/components/article-view-count';
 import { formatArticleDate, getArticle, getArticleSlugs } from '@/lib/articles';
 
 type ArticlePageProps = {
@@ -47,12 +48,18 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         </Link>
 
         <header className='mb-10 border-b-2 border-border pb-8'>
-          <p className='mb-3 text-sm text-foreground/60'>
-            {formatArticleDate(article.date)}
-            {article.metadata?.readingTime
-              ? ` · ${Math.max(1, Math.ceil(article.metadata.readingTime))} min read`
-              : null}
-          </p>
+          <div className='mb-3 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-foreground/60'>
+            <span className='border-2 border-border bg-secondary-background px-2 py-0.5 text-xs font-bold text-foreground'>
+              {article.category}
+            </span>
+            <span>{formatArticleDate(article.date)}</span>
+            {article.metadata?.readingTime ? (
+              <span>
+                {Math.max(1, Math.ceil(article.metadata.readingTime))} min read
+              </span>
+            ) : null}
+            <ArticleViewCount slug={article.slug} record />
+          </div>
           <h1 className='mb-4 text-3xl font-bold leading-tight sm:text-4xl md:text-5xl'>
             {article.title}
           </h1>

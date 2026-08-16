@@ -9,8 +9,8 @@ import toast from 'react-hot-toast';
 import { Button } from '@/components/ui/button';
 import { useIsClient } from '@/hooks/use-is-client';
 import { cn } from '@/lib/utils';
+import { getOrCreateVisitorId } from '@/lib/visitor-id';
 
-const VISITOR_KEY = 'rp_visitor_id';
 const DEFAULT_TARGET = 'portfolio';
 
 type LikeStatus = {
@@ -21,21 +21,6 @@ type LikeStatus = {
   message?: string;
   error?: string;
 };
-
-function getOrCreateVisitorId() {
-  if (typeof window === 'undefined') return '';
-
-  const existing = window.localStorage.getItem(VISITOR_KEY);
-  if (existing && existing.length >= 8) return existing;
-
-  const id =
-    typeof crypto !== 'undefined' && 'randomUUID' in crypto
-      ? crypto.randomUUID()
-      : `v_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
-
-  window.localStorage.setItem(VISITOR_KEY, id);
-  return id;
-}
 
 function formatCount(n: number) {
   return new Intl.NumberFormat('en', {

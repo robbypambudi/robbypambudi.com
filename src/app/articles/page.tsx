@@ -6,7 +6,7 @@ import { getArticles } from '@/lib/articles';
 export const metadata: Metadata = {
   title: 'Articles',
   description:
-    'Engineering notes by Robby Ulung Pambudi on production RAG, LLM systems, and distributed inference.',
+    'Articles by Robby Ulung Pambudi — technology, career, education, life, and opinion.',
 };
 
 export default function ArticlesPage() {

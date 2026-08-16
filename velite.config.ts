@@ -17,6 +17,9 @@ export default defineConfig({
           title: s.string().max(120),
           description: s.string().max(300),
           date: s.isodate(),
+          category: s
+            .enum(['Technology', 'Career', 'Education', 'Life', 'Opinion'])
+            .default('Technology'),
           tags: s.array(s.string()).default([]),
           draft: s.boolean().default(false),
           cover: s.image().optional(),

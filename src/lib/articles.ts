@@ -1,3 +1,7 @@
+import {
+  ARTICLE_CATEGORIES,
+  type ArticleCategory,
+} from '@/lib/article-categories';
 import { type Article, articles } from '#site/content';
 
 const isProduction = process.env.NODE_ENV === 'production';
@@ -18,6 +22,11 @@ export function getArticle(slug: string): Article | undefined {
 
 export function getArticleSlugs(): string[] {
   return getArticles().map((article) => article.slug);
+}
+
+export function getArticleCategories(): ArticleCategory[] {
+  const used = new Set(getArticles().map((article) => article.category));
+  return ARTICLE_CATEGORIES.filter((category) => used.has(category));
 }
 
 export function formatArticleDate(date: string) {

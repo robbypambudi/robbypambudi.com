@@ -2,6 +2,7 @@
 title: Building RAG for Production Beyond Just a Demo
 description: Practical lessons from building retrieval-augmented generation systems used by real users—from chunking and evaluation to latency budgets and failure modes that truly matter in production.
 date: 2026-08-07
+category: Technology
 tags:
   - AI
   - RAG
