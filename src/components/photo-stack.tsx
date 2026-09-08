@@ -77,9 +77,9 @@ export default function PhotoStack({
   const visibleOrder = order.slice(0, Math.min(4, items.length));
 
   return (
-    <div className='mx-auto w-full max-w-[360px] sm:max-w-[400px] lg:mx-0 lg:max-w-none'>
+    <div className='mx-auto w-full max-w-[360px] px-3 pb-10 sm:max-w-[400px] sm:px-4 sm:pb-12 lg:mx-0 lg:max-w-none'>
       <motion.div
-        className='relative mx-auto aspect-[4/5] w-full max-w-[340px] sm:max-w-[380px] lg:max-w-[420px]'
+        className='relative z-10 mx-auto aspect-[4/5] w-full max-w-[340px] sm:max-w-[380px] lg:max-w-[420px]'
         initial={{ opacity: 0, y: 20 }}
         animate={ready ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ duration: 0.5, ease: 'easeOut' }}

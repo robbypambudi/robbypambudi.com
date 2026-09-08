@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from 'motion/react';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 
 import type { GalleryItem } from '@/components/photo-stack';
 
@@ -20,12 +20,23 @@ export default function GalleryGrid({
   ready = true,
 }: GalleryGridProps) {
   const [openId, setOpenId] = useState<string | null>(null);
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
+
+  const sortedItems = useMemo(
+    () =>
+      [...items].sort((a, b) => {
+        const yearDiff = Number(b.year) - Number(a.year);
+        if (yearDiff !== 0) return yearDiff;
+        return a.place.localeCompare(b.place);
+      }),
+    [items],
+  );
 
   return (
     <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
-      {items.map((item, index) => {
+      {sortedItems.map((item, index) => {
         const isActive = item.id === activeId;
-        const isOpen = openId === item.id;
+        const showCast = openId === item.id || hoveredId === item.id;
         const fitMode =
           item.fit ?? (item.span === 'wide' ? 'contain' : 'cover');
 
@@ -45,13 +56,17 @@ export default function GalleryGrid({
           >
             <button
               type='button'
+              onMouseEnter={() => setHoveredId(item.id)}
+              onMouseLeave={() => setHoveredId(null)}
+              onFocus={() => setHoveredId(item.id)}
+              onBlur={() => setHoveredId(null)}
               onClick={() => {
                 onSelect(item.id);
                 setOpenId((prev) => (prev === item.id ? null : item.id));
               }}
-              aria-expanded={isOpen}
+              aria-expanded={showCast}
               aria-label={`${item.place} ${item.year}: ${item.moment}. ${
-                isOpen ? 'Hide' : 'Show'
+                openId === item.id ? 'Hide' : 'Show'
               } who is in the photo.`}
               className='group relative block aspect-[4/3] w-full overflow-hidden text-left outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset'
             >
@@ -71,7 +86,12 @@ export default function GalleryGrid({
                 className='pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent'
                 aria-hidden='true'
               />
-              <div className='pointer-events-none absolute inset-x-0 bottom-0 p-3'>
+
+              <div
+                className={`pointer-events-none absolute inset-x-0 bottom-0 p-3 transition-opacity ${
+                  showCast ? 'opacity-0' : 'opacity-100'
+                }`}
+              >
                 <p className='w-fit border-2 border-border bg-chart-3 px-2 py-0.5 text-[0.65rem] font-bold uppercase tracking-wide text-foreground shadow-shadow'>
                   {item.place} · {item.year}
                 </p>
@@ -79,37 +99,41 @@ export default function GalleryGrid({
                   {item.moment}
                 </p>
               </div>
-            </button>
 
-            <AnimatePresence initial={false}>
-              {isOpen ? (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: 'auto', opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.25, ease: 'easeOut' }}
-                  className='overflow-hidden border-t-4 border-border bg-secondary-background'
-                >
-                  <div className='p-3 sm:p-4'>
-                    <p className='mb-2 text-[0.65rem] font-bold uppercase tracking-wide text-foreground/60'>
+              <AnimatePresence>
+                {showCast ? (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className='absolute inset-0 z-10 flex flex-col justify-end bg-black/70 p-3 backdrop-blur-[2px] sm:p-4'
+                  >
+                    <p className='mb-1 text-[0.65rem] font-bold uppercase tracking-wide text-white/70'>
+                      {item.place} · {item.year}
+                    </p>
+                    <p className='mb-3 text-sm font-bold text-white'>
+                      {item.moment}
+                    </p>
+                    <p className='mb-2 text-[0.65rem] font-bold uppercase tracking-wide text-white/60'>
                       In this frame
                     </p>
-                    <ul className='space-y-2'>
+                    <ul className='space-y-1.5'>
                       {item.people.map((person) => (
                         <li key={person.name} className='leading-snug'>
-                          <span className='block text-sm font-bold text-foreground'>
+                          <span className='block text-sm font-bold text-white'>
                             {person.name}
                           </span>
-                          <span className='block text-xs text-foreground/70'>
+                          <span className='block text-xs text-white/75'>
                             {person.note}
                           </span>
                         </li>
                       ))}
                     </ul>
-                  </div>
-                </motion.div>
-              ) : null}
-            </AnimatePresence>
+                  </motion.div>
+                ) : null}
+              </AnimatePresence>
+            </button>
           </motion.article>
         );
       })}

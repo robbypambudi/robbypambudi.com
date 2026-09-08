@@ -122,42 +122,6 @@
         ]
       },
       {
-        "id": "maba-cup-2023",
-        "src": "/images/galeries/maba_cup_event_2023.JPG",
-        "alt": "Robby, AJ, Agfi, and Tigo at Maba Cup Event 2023 in front of the ITS entrance",
-        "place": "Maba Cup",
-        "year": "2023",
-        "moment": "Event night under the ITS lights",
-        "span": "square",
-        "fit": "contain",
-        "people": [
-          {
-            "name": "Robby",
-            "note": "Left — peace sign, checkered shirt under the jacket",
-            "x": 18,
-            "y": 45
-          },
-          {
-            "name": "AJ",
-            "note": "Glasses and ITS tee under the jacket",
-            "x": 40,
-            "y": 42
-          },
-          {
-            "name": "Agfi",
-            "note": "Big smile, arm around the crew",
-            "x": 60,
-            "y": 42
-          },
-          {
-            "name": "Tigo",
-            "note": "Right — glasses, peace sign, patterned shirt",
-            "x": 80,
-            "y": 44
-          }
-        ]
-      },
-      {
         "id": "sarangan-2025",
         "src": "/images/galeries/sarangan_2025_heru_cakno_robby.jpg",
         "alt": "Heru, Cakno, and Robby at Sarangan",
@@ -259,30 +223,7 @@
           }
         ]
       },
-      {
-        "id": "mojokerto",
-        "src": "/images/galeries/mojokerto_masjihan_robby.jpg",
-        "alt": "Mas Jihan and Robby in Mojokerto",
-        "place": "Mojokerto",
-        "year": "2025",
-        "moment": "Evening walk after the rain",
-        "span": "square",
-        "fit": "contain",
-        "people": [
-          {
-            "name": "Mas Jihan",
-            "note": "Thumbs up in the blue tee and cap",
-            "x": 38,
-            "y": 42
-          },
-          {
-            "name": "Robby",
-            "note": "White shirt, peace sign, damp stone path",
-            "x": 68,
-            "y": 40
-          }
-        ]
-      },
+
       {
         "id": "its-crew",
         "src": "/images/galeries/its_aj_agfi_tigo.jpg",

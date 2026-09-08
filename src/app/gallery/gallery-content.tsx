@@ -5,7 +5,6 @@ import { motion } from 'motion/react';
 import { Link } from 'next-view-transitions';
 import { useContext, useState } from 'react';
 
-import GalleryFilmstrip from '@/components/gallery-filmstrip';
 import GalleryGrid from '@/components/gallery-grid';
 import { FirstLoadContext } from '@/components/layout/first-load-animation';
 import PhotoStack, { type GalleryItem } from '@/components/photo-stack';
@@ -20,7 +19,7 @@ export default function GalleryContent() {
 
   return (
     <main className='min-h-screen'>
-      <section className='section-shell border-b-4 border-border bg-background pb-0'>
+      <section className='section-shell border-b-4 border-border bg-background'>
         <div className='mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[minmax(340px,1fr)_minmax(0,1.1fr)] lg:gap-14'>
           <PhotoStack
             key={items.map((item) => item.id).join('-')}
@@ -67,14 +66,6 @@ export default function GalleryContent() {
             </div>
           </motion.div>
         </div>
-
-        <div className='mx-auto mt-4 max-w-7xl sm:mt-6'>
-          <GalleryFilmstrip
-            items={items}
-            activeId={activeId}
-            onSelect={setActiveId}
-          />
-        </div>
       </section>
 
       <section className='section-shell border-b-4 border-border bg-secondary-background'>
@@ -94,7 +85,7 @@ export default function GalleryContent() {
               The rest of the set
             </h2>
             <p className='mt-2 text-sm text-foreground/70 sm:text-base'>
-              Tap a photo to meet who&apos;s in the frame.
+              Newest first — hover or tap a frame to meet who&apos;s in it.
             </p>
           </motion.div>
 
