@@ -13,10 +13,312 @@
   "navbar": {
     "links": [
       { "label": "Experience", "href": "/#experience" },
-      { "label": "Articles", "href": "/articles" },
       { "label": "Publications", "href": "/publications" },
+      { "label": "Articles", "href": "/articles" },
       { "label": "Activities", "href": "/activities" },
+      { "label": "Gallery", "href": "/gallery" },
       { "label": "Contact", "href": "/#contact" }
+    ]
+  },
+  "gallery": {
+    "headline": "Trips, ordinary nights, and the people who made them stick.",
+    "lede": "A few frames from the road, campus nights, and tables that ran long.",
+    "items": [
+      {
+        "id": "bromo-2026",
+        "src": "/images/galeries/bromo_2026.jpg",
+        "alt": "Selfie overlooking Mount Bromo and the sea of clouds",
+        "place": "Bromo",
+        "year": "2026",
+        "moment": "Above the sea of clouds",
+        "span": "tall",
+        "fit": "cover",
+        "focus": "70% 75%",
+        "people": [
+          {
+            "name": "Robby",
+            "note": "Quiet selfie before the mist takes the crater",
+            "x": 74,
+            "y": 72
+          }
+        ]
+      },
+      {
+        "id": "teman-sma",
+        "src": "/images/galeries/temen_sma_jihan_fais_robby.JPG",
+        "alt": "Robby, Mas Jihan, and Faiz catching up at a cafe",
+        "place": "Surabaya",
+        "year": "2026",
+        "moment": "High school crew, laptops and long table talk",
+        "span": "wide",
+        "fit": "contain",
+        "people": [
+          {
+            "name": "Robby",
+            "note": "Left — selfie corner, HIGH OCTANE tee",
+            "x": 18,
+            "y": 45
+          },
+          {
+            "name": "Mas Jihan",
+            "note": "Center — thumbs up behind the laptop",
+            "x": 48,
+            "y": 42
+          },
+          {
+            "name": "Faiz",
+            "note": "Right — peace sign, striped shirt",
+            "x": 78,
+            "y": 42
+          }
+        ]
+      },
+      {
+        "id": "jakarta-2026",
+        "src": "/images/galeries/jakarta_2026_fathin_robby.jpg",
+        "alt": "Fathin and Robby with the Jakarta skyline at night",
+        "place": "Jakarta",
+        "year": "2026",
+        "moment": "City lights from above",
+        "span": "square",
+        "fit": "contain",
+        "people": [
+          {
+            "name": "Fathin",
+            "note": "Left — glasses, dark shirt, skyline glow behind",
+            "x": 38,
+            "y": 42
+          },
+          {
+            "name": "Robby",
+            "note": "Right — white tee, smiling over the city",
+            "x": 62,
+            "y": 42
+          }
+        ]
+      },
+      {
+        "id": "mojokerto-2026",
+        "src": "/images/galeries/mojokerto_trip_masjihan_robby-2026.JPG",
+        "alt": "Mas Jihan and Robby on a Mojokerto trip at dusk",
+        "place": "Mojokerto",
+        "year": "2026",
+        "moment": "Trip selfie on the stone path",
+        "span": "square",
+        "fit": "contain",
+        "people": [
+          {
+            "name": "Mas Jihan",
+            "note": "Left — thumbs up, blue tee and cap",
+            "x": 38,
+            "y": 42
+          },
+          {
+            "name": "Robby",
+            "note": "Right — white shirt, peace sign, watch on",
+            "x": 68,
+            "y": 40
+          }
+        ]
+      },
+      {
+        "id": "maba-cup-2023",
+        "src": "/images/galeries/maba_cup_event_2023.JPG",
+        "alt": "Robby, AJ, Agfi, and Tigo at Maba Cup Event 2023 in front of the ITS entrance",
+        "place": "Maba Cup",
+        "year": "2023",
+        "moment": "Event night under the ITS lights",
+        "span": "square",
+        "fit": "contain",
+        "people": [
+          {
+            "name": "Robby",
+            "note": "Left — peace sign, checkered shirt under the jacket",
+            "x": 18,
+            "y": 45
+          },
+          {
+            "name": "AJ",
+            "note": "Glasses and ITS tee under the jacket",
+            "x": 40,
+            "y": 42
+          },
+          {
+            "name": "Agfi",
+            "note": "Big smile, arm around the crew",
+            "x": 60,
+            "y": 42
+          },
+          {
+            "name": "Tigo",
+            "note": "Right — glasses, peace sign, patterned shirt",
+            "x": 80,
+            "y": 44
+          }
+        ]
+      },
+      {
+        "id": "sarangan-2025",
+        "src": "/images/galeries/sarangan_2025_heru_cakno_robby.jpg",
+        "alt": "Heru, Cakno, and Robby at Sarangan",
+        "place": "Sarangan",
+        "year": "2025",
+        "moment": "Mountain lake stop with the crew",
+        "span": "tall",
+        "fit": "contain",
+        "people": [
+          {
+            "name": "Robby",
+            "note": "Peace sign, floral tee, tote ready for the trip",
+            "x": 28,
+            "y": 58
+          },
+          {
+            "name": "Heru",
+            "note": "Center hug — holding the trio together",
+            "x": 50,
+            "y": 55
+          },
+          {
+            "name": "Cakno",
+            "note": "Peace sign on the right, lake behind us",
+            "x": 70,
+            "y": 56
+          }
+        ]
+      },
+      {
+        "id": "buka-bersama",
+        "src": "/images/galeries/buka_bersama_armand_heru_tama_cakno.JPG",
+        "alt": "Buka bersama with Armand, Heru, Tama, and Cakno",
+        "place": "Surabaya",
+        "year": "2025",
+        "moment": "Buka bersama after a long day",
+        "span": "wide",
+        "fit": "contain",
+        "people": [
+          {
+            "name": "Armand",
+            "note": "Pointing at the table — 'this plate is mine'",
+            "x": 18,
+            "y": 42
+          },
+          {
+            "name": "Heru",
+            "note": "Calm smile, hands folded after the meal",
+            "x": 38,
+            "y": 40
+          },
+          {
+            "name": "Tama",
+            "note": "Glasses in the back, soaking in the lantern light",
+            "x": 48,
+            "y": 32
+          },
+          {
+            "name": "Cakno",
+            "note": "Peace sign and black jacket energy",
+            "x": 62,
+            "y": 38
+          },
+          {
+            "name": "Robby",
+            "note": "Thumbs up from the selfie corner",
+            "x": 82,
+            "y": 55
+          }
+        ]
+      },
+      {
+        "id": "birthday-hotpot",
+        "src": "/images/galeries/my_birthday_robby_joice_heru.jpg",
+        "alt": "Birthday dinner with Joice and Heru",
+        "place": "Hotpot night",
+        "year": "2025",
+        "moment": "Birthday table — grill, shabu, and friends",
+        "span": "wide",
+        "fit": "contain",
+        "people": [
+          {
+            "name": "Heru",
+            "note": "Fork mid-air — caught mid-bite",
+            "x": 28,
+            "y": 28
+          },
+          {
+            "name": "Joice",
+            "note": "Holding the calm end of the booth",
+            "x": 62,
+            "y": 30
+          },
+          {
+            "name": "Robby",
+            "note": "Birthday boy, thumbs up over the grill",
+            "x": 82,
+            "y": 68
+          }
+        ]
+      },
+      {
+        "id": "mojokerto",
+        "src": "/images/galeries/mojokerto_masjihan_robby.jpg",
+        "alt": "Mas Jihan and Robby in Mojokerto",
+        "place": "Mojokerto",
+        "year": "2025",
+        "moment": "Evening walk after the rain",
+        "span": "square",
+        "fit": "contain",
+        "people": [
+          {
+            "name": "Mas Jihan",
+            "note": "Thumbs up in the blue tee and cap",
+            "x": 38,
+            "y": 42
+          },
+          {
+            "name": "Robby",
+            "note": "White shirt, peace sign, damp stone path",
+            "x": 68,
+            "y": 40
+          }
+        ]
+      },
+      {
+        "id": "its-crew",
+        "src": "/images/galeries/its_aj_agfi_tigo.jpg",
+        "alt": "AJ, Agfi, Tigo, and Robby at ITS",
+        "place": "ITS",
+        "year": "2024",
+        "moment": "Campus night under the ITS arch",
+        "span": "square",
+        "fit": "contain",
+        "people": [
+          {
+            "name": "AJ",
+            "note": "Peace sign on the left — event jacket on",
+            "x": 18,
+            "y": 45
+          },
+          {
+            "name": "Agfi",
+            "note": "Big smile, glasses, arm around the crew",
+            "x": 40,
+            "y": 42
+          },
+          {
+            "name": "Tigo",
+            "note": "Center hug — holding everyone in frame",
+            "x": 58,
+            "y": 42
+          },
+          {
+            "name": "Robby",
+            "note": "Batik under the jacket, peace sign right",
+            "x": 80,
+            "y": 44
+          }
+        ]
+      }
     ]
   },
   "education": [
