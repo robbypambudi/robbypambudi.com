@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from 'motion/react';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 export type GalleryPerson = {
   name: string;
@@ -46,33 +46,33 @@ export default function PhotoStack({
   activeId,
   onActiveIdChange,
 }: PhotoStackProps) {
-  const [order, setOrder] = useState(() => items.map((_, i) => i));
+  const activeIndex = Math.max(
+    0,
+    activeId ? items.findIndex((item) => item.id === activeId) : 0,
+  );
+  const [behind, setBehind] = useState(() =>
+    items.map((_, i) => i).filter((i) => i !== 0),
+  );
   const [fanned, setFanned] = useState(false);
   const [showCast, setShowCast] = useState(false);
 
+  const order = [
+    activeIndex,
+    ...behind.filter((i) => i !== activeIndex),
+    ...items
+      .map((_, i) => i)
+      .filter((i) => i !== activeIndex && !behind.includes(i)),
+  ];
+
   const bringIndexToFront = (itemIndex: number) => {
-    setOrder((prev) => {
-      if (prev[0] === itemIndex) return prev;
-      const next = prev.filter((i) => i !== itemIndex);
-      next.unshift(itemIndex);
-      return next;
+    if (itemIndex === activeIndex) return;
+    setBehind((prev) => {
+      const next = prev.filter((i) => i !== itemIndex && i !== activeIndex);
+      return [activeIndex, ...next];
     });
     setShowCast(false);
     onActiveIdChange?.(items[itemIndex].id);
   };
-
-  useEffect(() => {
-    if (!activeId) return;
-    const itemIndex = items.findIndex((item) => item.id === activeId);
-    if (itemIndex < 0) return;
-    setOrder((prev) => {
-      if (prev[0] === itemIndex) return prev;
-      const next = prev.filter((i) => i !== itemIndex);
-      next.unshift(itemIndex);
-      return next;
-    });
-    setShowCast(false);
-  }, [activeId, items]);
 
   const visibleOrder = order.slice(0, Math.min(4, items.length));
 
