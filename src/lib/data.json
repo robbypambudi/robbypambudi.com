@@ -44,6 +44,36 @@
         ]
       },
       {
+        "id": "jakarta-rpl-2026",
+        "src": "/images/galeries/jakarta_meet_and_greet_rpl_team_2026.jpg",
+        "alt": "Meet and greet with the RPL team in Jakarta, February 2026",
+        "place": "Jakarta",
+        "year": "2026",
+        "moment": "February meet & greet with the RPL team",
+        "span": "wide",
+        "fit": "contain",
+        "people": [
+          {
+            "name": "Robby",
+            "note": "Left — peace sign from the selfie corner",
+            "x": 18,
+            "y": 48
+          },
+          {
+            "name": "Teammate (center)",
+            "note": "Peace sign across the table",
+            "x": 52,
+            "y": 42
+          },
+          {
+            "name": "Teammate (right)",
+            "note": "Glasses, navy shirt over white tee",
+            "x": 78,
+            "y": 42
+          }
+        ]
+      },
+      {
         "id": "teman-sma",
         "src": "/images/galeries/temen_sma_jihan_fais_robby.JPG",
         "alt": "Robby, Mas Jihan, and Faiz catching up at a cafe",
